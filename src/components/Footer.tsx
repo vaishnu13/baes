@@ -1,0 +1,83 @@
+import Link from "next/link";
+import { MapPin, Phone, Mail, Clock, Star } from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className="bg-background border-t border-white/5 pt-16 pb-8">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          
+          {/* Brand */}
+          <div className="space-y-4">
+            <Link href="/" className="inline-block">
+              <div className="text-3xl font-serif font-bold text-gold-500 uppercase tracking-widest">
+                Bae&apos;s
+              </div>
+              <div className="text-sm uppercase tracking-widest text-cream/70 mt-1">
+                Food Central
+              </div>
+            </Link>
+            <p className="text-cream/60 leading-relaxed mt-4 max-w-xs">
+              Bae&apos;s Food Central. Experience the finest Indo-Arabic dining in Gajuwaka.
+            </p>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold text-gold-400 uppercase tracking-wider mb-6">Contact Us</h4>
+            <div className="flex items-start gap-3 text-cream/70">
+              <MapPin size={20} className="text-gold-500 shrink-0 mt-1" />
+              <a 
+                href="https://maps.app.goo.gl/rxzPHBnqKiXZj6Kr7" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="hover:text-gold-400 transition-colors"
+              >
+                Chaitanya Nagar, Gajuwaka<br />Visakhapatnam, AP 530026
+              </a>
+            </div>
+            <div className="flex items-center gap-3 text-cream/70">
+              <Phone size={20} className="text-gold-500 shrink-0" />
+              <p>+91 77748899</p>
+            </div>
+          </div>
+
+          {/* Business Hours */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold text-gold-400 uppercase tracking-wider mb-6">Hours</h4>
+            <div className="flex items-start gap-3 text-cream/70">
+              <Clock size={20} className="text-gold-500 shrink-0 mt-1" />
+              <div>
+                <p><strong className="text-cream">Mon - Sun:</strong><br/> 11:00 AM - 11:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Links & Socials */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold text-gold-400 uppercase tracking-wider mb-6">Connect</h4>
+            <div className="flex flex-col gap-3 text-cream/70">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram
+              </a>
+              <a href="https://search.google.com/local/reviews?placeid=YOUR_PLACE_ID" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
+                <Star size={20} /> Google Reviews
+              </a>
+            </div>
+          </div>
+          
+        </div>
+
+
+
+        <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-cream/50 text-sm">
+          <p>&copy; {new Date().getFullYear()} Bae&apos;s Food Central. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-gold-400 transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-gold-400 transition-colors">Terms of Service</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
