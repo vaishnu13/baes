@@ -9,12 +9,17 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block">
-              <div className="text-3xl font-serif font-bold text-gold-500 uppercase tracking-widest">
-                Bae&apos;s
+            <Link href="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 relative rounded-full overflow-hidden border-2 border-gold-500 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
+                <img src="/logo.png" alt="Bae's Food Central Logo" className="w-full h-full object-cover" />
               </div>
-              <div className="text-sm uppercase tracking-widest text-cream/70 mt-1">
-                Food Central
+              <div>
+                <div className="text-2xl font-serif font-bold text-gold-500 uppercase tracking-widest leading-none">
+                  Bae&apos;s
+                </div>
+                <div className="text-xs uppercase tracking-[0.2em] text-cream/70 mt-1">
+                  Food Central
+                </div>
               </div>
             </Link>
             <p className="text-cream/60 leading-relaxed mt-4 max-w-xs">
@@ -27,16 +32,31 @@ export default function Footer() {
             <h4 className="text-lg font-bold text-gold-400 uppercase tracking-wider mb-6">Contact Us</h4>
             <div className="flex items-start gap-3 text-cream/70">
               <MapPin size={20} className="text-gold-500 shrink-0 mt-1" />
-              <a 
-                href="https://maps.app.goo.gl/rxzPHBnqKiXZj6Kr7" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="hover:text-gold-400 transition-colors"
-              >
-                Chaitanya Nagar, Gajuwaka<br />Visakhapatnam, AP 530026
-              </a>
+              <div className="flex flex-col gap-2 w-full">
+                <a 
+                  href="https://maps.app.goo.gl/rxzPHBnqKiXZj6Kr7" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="hover:text-gold-400 transition-colors"
+                >
+                  Chaitanya Nagar, Gajuwaka<br />Visakhapatnam, AP 530026
+                </a>
+                {/* Small visible map */}
+                <div className="w-full h-28 rounded-lg overflow-hidden border border-white/10 mt-1 shadow-md">
+                  <iframe 
+                    src="https://maps.google.com/maps?q=Bae's%20Food%20Central,%20Chaitanya%20Nagar,%20Gajuwaka,%20Visakhapatnam&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) grayscale(30%) contrast(90%)' }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Bae's Food Central Map"
+                  ></iframe>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-3 text-cream/70">
+            <div className="flex items-center gap-3 text-cream/70 mt-4">
               <Phone size={20} className="text-gold-500 shrink-0" />
               <a href="tel:+919177748899" className="hover:text-gold-400 transition-colors">
                 +91 9177748899

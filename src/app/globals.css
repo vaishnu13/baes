@@ -66,3 +66,18 @@ body {
 .animate-marquee-hover-pause:hover {
   animation-play-state: paused;
 }
+
+@keyframes order-pulse-blink {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    background-color: var(--gold-600);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(212, 175, 55, 0.95);
+    background-color: var(--gold-400);
+  }
+}
+
+.animate-order-glow {
+  animation: order-pulse-blink 1.8s infinite ease-in-out;
+}

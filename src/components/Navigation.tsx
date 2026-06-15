@@ -30,7 +30,7 @@ export default function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="w-10 h-10 md:w-12 md:h-12 relative rounded-full overflow-hidden border-2 border-gold-500 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
-            <img src="/logo .png" alt="Bae's Food Central Logo" className="w-full h-full object-cover" />
+            <img src="/logo.png" alt="Bae's Food Central Logo" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col">
             <div className="text-xl md:text-2xl font-serif font-bold text-gold-500 uppercase tracking-widest leading-none">
@@ -50,7 +50,7 @@ export default function Navigation() {
           
           <Link 
             href="#order"
-            className="px-6 py-2.5 bg-gold-600 hover:bg-gold-500 text-background rounded-full transition-all duration-300 font-semibold uppercase tracking-wider shadow-lg shadow-gold-500/20"
+            className="px-6 py-2.5 text-background rounded-full transition-all duration-300 font-semibold uppercase tracking-wider animate-order-glow"
           >
             Order Now
           </Link>
@@ -79,7 +79,7 @@ export default function Navigation() {
           <Link 
             onClick={() => setMobileMenuOpen(false)}
             href="#order"
-            className="px-8 py-3 bg-gold-600 text-background rounded-full font-semibold uppercase tracking-widest w-10/12 text-center"
+            className="px-8 py-3 text-background rounded-full font-semibold uppercase tracking-widest w-10/12 text-center animate-order-glow"
           >
             Order Now
           </Link>

@@ -24,7 +24,7 @@ export default function Hero() {
           className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-sm font-medium tracking-widest uppercase"
         >
           <Star size={16} className="fill-gold-400" />
-          <span>Top Rated in Gajuwaka</span>
+          <span>Top Rated Restaurant in Gajuwaka</span>
           <Star size={16} className="fill-gold-400" />
         </motion.div>
 
@@ -57,7 +57,7 @@ export default function Hero() {
         >
           <Link 
             href="#order"
-            className="w-full sm:w-auto px-8 py-4 text-center bg-gold-600 hover:bg-gold-500 text-background rounded-full font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:-translate-y-1"
+            className="w-full sm:w-auto px-8 py-4 text-center text-background rounded-full font-bold uppercase tracking-widest transition-all duration-300 hover:-translate-y-1 animate-order-glow"
           >
             Order Now
           </Link>

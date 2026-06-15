@@ -6,7 +6,7 @@ import { Crown, Gift, Percent, Clock, Sparkles } from "lucide-react";
 export default function Loyalty() {
   const benefits = [
     { icon: <Gift size={24} />, title: "Birthday Rewards", desc: "Celebrate your special day with exclusive complimentary desserts and discounts." },
-    { icon: <Percent size={24} />, title: "Exclusive Discounts", desc: "Unlock member-only pricing on signature dishes and platters." },
+    { icon: <Percent size={24} />, title: "5% OFF", desc: "Get 5% off on every next visit." },
     { icon: <Sparkles size={24} />, title: "Special Weekend Offers", desc: "Get access to our limited-time weekend specials before anyone else." },
     { icon: <Clock size={24} />, title: "Early Access", desc: "Be the first to try our new menu additions and seasonal specials." }
   ];
