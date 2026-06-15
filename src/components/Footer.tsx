@@ -18,7 +18,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-cream/60 leading-relaxed mt-4 max-w-xs">
-              Bae&apos;s Food Central. Experience the finest Indo-Arabic dining in Gajuwaka.
+              Bae&apos;s Food Central. Experience the finest dining in Gajuwaka.
             </p>
           </div>
 

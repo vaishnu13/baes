@@ -37,7 +37,7 @@ export default function Loyalty() {
                   Join Bas’s <br/> <span className="text-gold-400">Loyalty Club</span>
                 </h2>
                 <p className="text-cream/80 text-lg mb-8 leading-relaxed">
-                  Elevate your dining experience. Earn points on every visit and unlock a world of premium rewards, exclusive tastes, and VIP treatment.
+                  Elevate your dining experience. Earn points on every visit and unlock a world of premium rewards.
                 </p>
                 <a 
                   href="https://loyalty-form-alpha.vercel.app"
