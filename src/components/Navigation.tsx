@@ -33,7 +33,7 @@ export default function Navigation() {
             <img src="/logo.png" alt="Bae's Food Central Logo" className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-col">
-            <div className="text-xl md:text-2xl font-serif font-bold text-gold-500 uppercase tracking-widest leading-none">
+            <div className="text-xl md:text-2xl font-serif font-bold text-gold-500 tracking-widest leading-none">
               Bae&apos;s
             </div>
             <div className="hidden sm:block text-[10px] uppercase tracking-[0.2em] text-cream/70 mt-1">

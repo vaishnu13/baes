@@ -34,7 +34,7 @@ export default function Loyalty() {
                   <Crown size={32} />
                 </div>
                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-cream mb-6 leading-tight">
-                  Join Bas’s <br/> <span className="text-gold-400">Loyalty Club</span>
+                  Join Bae’s <br/> <span className="text-gold-400">Loyalty Club</span>
                 </h2>
                 <p className="text-cream/80 text-lg mb-8 leading-relaxed">
                   Elevate your dining experience. Earn points on every visit and unlock a world of premium rewards.
