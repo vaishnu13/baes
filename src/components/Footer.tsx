@@ -9,9 +9,9 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden border-2 border-gold-500 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
-                <img src="/logo.png" alt="Bae's Food Central Logo" className="w-full h-full object-cover" />
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 relative filter drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] group-hover:scale-105 transition-transform duration-300">
+                <img src="/logo.png" alt="Bae's Food Central Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <div className="text-2xl font-serif font-bold text-gold-500 uppercase tracking-widest leading-none">

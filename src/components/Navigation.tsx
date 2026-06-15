@@ -28,9 +28,9 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 md:w-12 md:h-12 relative rounded-full overflow-hidden border-2 border-gold-500 shadow-[0_0_10px_rgba(212,175,55,0.3)]">
-            <img src="/logo.png" alt="Bae's Food Central Logo" className="w-full h-full object-cover" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-10 h-10 md:w-12 md:h-12 relative filter drop-shadow-[0_0_8px_rgba(212,175,55,0.6)] group-hover:scale-105 transition-transform duration-300">
+            <img src="/logo.png" alt="Bae's Food Central Logo" className="w-full h-full object-contain" />
           </div>
           <div className="flex flex-col">
             <div className="text-xl md:text-2xl font-serif font-bold text-gold-500 uppercase tracking-widest leading-none">
