@@ -46,7 +46,7 @@ const reviews = [
     name: "Sneha Reddy",
     rating: 5,
     source: "swiggy",
-    text: "The Mandi here is cooked to absolute perfection. The spices are authentic and the chicken is incredibly tender. Ordered on Swiggy and the delivery was super fast!",
+    text: "Ordered from here for the first time last night and the food was actually really good. The packaging was neat and tight, no spills at all. Got the chicken biryani and it was flavorful, not overly oily. Portion size was plenty for two people. Definitely ordering again.",
   },
   {
     name: "Rahul Verma",
@@ -64,7 +64,7 @@ const reviews = [
     name: "Priya K.",
     rating: 5,
     source: "swiggy",
-    text: "Hands down the best shawarma in town! The garlic sauce is spot on. Very hygienic, excellent portion size, and great value.",
+    text: "The food from Bae's Food Central is consistently delicious. The starters were crispy and well-seasoned, and the main course tasted fresh. My only minor complaint is that the delivery took a bit longer than estimated during peak dinner hours. However, the food quality makes it worth the wait.",
   }
 ];
 
