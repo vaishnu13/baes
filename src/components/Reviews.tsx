@@ -58,7 +58,7 @@ const reviews = [
     name: "Mohammed Tariq",
     rating: 5,
     source: "zomato",
-    text: "Ordered their signature kebabs via Zomato. They arrived hot and fresh. The packaging was premium and the taste was exceptionally authentic. 5 stars!",
+    text: "Hands down some of the best food I’ve ordered recently! The food arrived piping hot, the packaging was extremely neat, and the flavors were perfectly balanced. The portion size was great, and it offered great value for money. Highly recommend!",
   },
   {
     name: "Priya K.",
