@@ -46,25 +46,25 @@ const reviews = [
     name: "Sneha Reddy",
     rating: 5,
     source: "swiggy",
-    text: "Ordered from here for the first time last night and the food was actually really good. The packaging was neat and tight, no spills at all. Got the chicken biryani and it was flavorful, not overly oily. Portion size was plenty for two people. Definitely ordering again.",
+    text: "Delicious chicken biryani! Flavorful, non-oily, and neatly packed with generous portions. Definitely ordering again.",
   },
   {
     name: "Rahul Verma",
     rating: 4,
     source: "google",
-    text: "Excellent dining experience. The premium Indo-Arabic atmosphere in Gajuwaka is unmatched. Great place for a family dinner. Highly recommend the Arabian Royal Platter.",
+    text: "Excellent dining experience and family spot. The premium Indo-Arabic atmosphere is unmatched. Highly recommend the Arabian Royal Platter!",
   },
   {
     name: "Mohammed Tariq",
     rating: 5,
     source: "zomato",
-    text: "Hands down some of the best food I’ve ordered recently! The food arrived piping hot, the packaging was extremely neat, and the flavors were perfectly balanced. The portion size was great, and it offered great value for money. Highly recommend!",
+    text: "Best food ordered recently! Arrived piping hot, neat packaging, and perfectly balanced flavors. Highly recommend!",
   },
   {
     name: "Priya K.",
     rating: 5,
     source: "swiggy",
-    text: "The food from Bae's Food Central is consistently delicious. The starters were crispy and well-seasoned, and the main course tasted fresh. My only minor complaint is that the delivery took a bit longer than estimated during peak dinner hours. However, the food quality makes it worth the wait.",
+    text: "Consistently delicious food with crispy starters and fresh main courses. The high quality makes it totally worth the wait!",
   }
 ];
 
