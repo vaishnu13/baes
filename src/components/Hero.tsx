@@ -53,22 +53,27 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 items-center justify-center w-full sm:w-auto"
+          className="flex flex-col sm:flex-row gap-6 items-center sm:items-start justify-center w-full sm:w-auto"
         >
           <Link 
             href="#order"
-            className="w-full sm:w-auto px-8 py-4 bg-gold-600 hover:bg-gold-500 text-background rounded-full font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:-translate-y-1"
+            className="w-full sm:w-auto px-8 py-4 text-center bg-gold-600 hover:bg-gold-500 text-background rounded-full font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:-translate-y-1"
           >
             Order Now
           </Link>
-          <a 
-            href="https://loyalty-form-alpha.vercel.app"
-            target="_blank"
-            rel="noreferrer"
-            className="w-full sm:w-auto px-8 py-4 bg-transparent border border-gold-500 text-gold-400 hover:bg-gold-500/10 rounded-full font-bold uppercase tracking-widest transition-all duration-300 hover:-translate-y-1"
-          >
-            Join Loyalty Club
-          </a>
+          <div className="flex flex-col items-center gap-2 w-full sm:w-auto">
+            <a 
+              href="https://loyalty-form-alpha.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto text-center px-8 py-4 bg-transparent border border-gold-500 text-gold-400 hover:bg-gold-500/10 rounded-full font-bold uppercase tracking-widest transition-all duration-300 hover:-translate-y-1"
+            >
+              Join Loyalty
+            </a>
+            <span className="text-xs text-cream/60 tracking-wider font-medium">
+              get offers and updates
+            </span>
+          </div>
         </motion.div>
 
         {/* Stats */}
