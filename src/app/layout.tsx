@@ -24,8 +24,8 @@ const jurassicPark = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Bae's Food Central | Premium Indo-Arabic Dining",
-  description: "Bae's Food Central. Premium Indo-Arabic Dining Experience in Gajuwaka.",
+  title: "Bae's Food Central | Top Rated Restaurant in Gajuwaka",
+  description: "Bae's Food Central. Top Rated Restaurant in Gajuwaka.",
   keywords: ["Bae's Food Central", "Best Restaurant in Gajuwaka", "Best Mandi in Gajuwaka", "Best Arabian Restaurant in Visakhapatnam"],
 };
 
