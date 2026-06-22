@@ -24,9 +24,32 @@ const jurassicPark = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.baesfoodcentral.co.in"),
   title: "Bae's Food Central | Top Rated Restaurant in Gajuwaka",
   description: "Bae's Food Central. Top Rated Restaurant in Gajuwaka.",
   keywords: ["Bae's Food Central", "Best Restaurant in Gajuwaka", "Best Mandi in Gajuwaka", "Best Arabian Restaurant in Visakhapatnam"],
+  openGraph: {
+    title: "Bae's Food Central | Top Rated Restaurant in Gajuwaka",
+    description: "Bae's Food Central. Top Rated Restaurant in Gajuwaka.",
+    url: "https://www.baesfoodcentral.co.in",
+    siteName: "Bae's Food Central",
+    images: [
+      {
+        url: "https://www.baesfoodcentral.co.in/logo.png",
+        width: 400,
+        height: 400,
+        alt: "Bae's Food Central Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bae's Food Central | Top Rated Restaurant in Gajuwaka",
+    description: "Bae's Food Central. Top Rated Restaurant in Gajuwaka.",
+    images: ["https://www.baesfoodcentral.co.in/logo.png"],
+  },
 };
 
 export default function RootLayout({
