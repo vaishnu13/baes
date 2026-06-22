@@ -79,10 +79,10 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-bold text-gold-400 uppercase tracking-wider mb-6">Connect</h4>
             <div className="flex flex-col gap-3 text-cream/70">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
+              <a href="https://www.instagram.com/baes.gajuwaka/" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram
               </a>
-              <a href="https://search.google.com/local/reviews?placeid=YOUR_PLACE_ID" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
+              <a href="https://www.google.com/maps/place/Bae's+FOOD+CENTRAL+Multi-cuisine+Restaurant/@17.6843117,83.2000539,17z/data=!4m8!3m7!1s0x3a39691361f422c7:0x8dbe5e00ce2b9cac!8m2!3d17.6843117!4d83.2026288!9m1!1b1!16s%2Fg%2F11s4_fjsc5?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
                 <Star size={20} /> Google Reviews
               </a>
             </div>

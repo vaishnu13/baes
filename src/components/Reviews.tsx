@@ -10,7 +10,7 @@ const platformStats = [
     reviewsCount: "500+ Reviews",
     color: "hover:border-gold-500/40",
     brandColor: "text-gold-400",
-    url: "https://search.google.com/local/reviews?placeid=YOUR_PLACE_ID",
+    url: "https://www.google.com/maps/place/Bae's+FOOD+CENTRAL+Multi-cuisine+Restaurant/@17.6843117,83.2000539,17z/data=!4m8!3m7!1s0x3a39691361f422c7:0x8dbe5e00ce2b9cac!8m2!3d17.6843117!4d83.2026288!9m1!1b1!16s%2Fg%2F11s4_fjsc5?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D",
     icon: (
       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114-3.526 0-6.38-2.854-6.38-6.38s2.854-6.38 6.38-6.38c1.714 0 3.267.68 4.402 1.776L21.3 4.77C19.1 2.7 15.9 1.5 12.24 1.5c-6 0-10.8 4.8-10.8 10.8s4.8 10.8 10.8 10.8c5.45 0 9.85-3.86 9.85-10.8 0-.6-.05-1.2-.16-1.815H12.24z"/>
