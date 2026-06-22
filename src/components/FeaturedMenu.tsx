@@ -118,7 +118,7 @@ export default function FeaturedMenu({ isExternalEntered, onExternalEnter }: Fea
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-cream/70 text-lg font-light max-w-xl mx-auto"
           >
-            Savor authentic Indo-Arabic delights, freshly prepared continental delicacies, and custom desserts directly from our kitchen.
+            {isEntered ? "Use the arrows or tabs below to flip pages." : "Click on Enter Menu to view full menu."}
           </motion.p>
         </div>
 
