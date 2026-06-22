@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Flame, Award, FileText, Sparkles, ChevronRight } from "lucide-react";
+import { FileText, Sparkles } from "lucide-react";
 import { menuCategories } from "../data/menuData";
+import MenuBook from "./MenuBook";
 
 interface FeaturedMenuProps {
   isExternalEntered?: boolean;
@@ -12,11 +13,12 @@ interface FeaturedMenuProps {
 
 export default function FeaturedMenu({ isExternalEntered, onExternalEnter }: FeaturedMenuProps = {}) {
   const [activeCategory, setActiveCategory] = useState("signatures");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [dietFilter, setDietFilter] = useState<"all" | "veg" | "nonveg">("all");
   const [isInternalEntered, setIsInternalEntered] = useState(false);
+  const [bookPage, setBookPage] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
 
   const isEntered = isExternalEntered !== undefined ? isExternalEntered : isInternalEntered;
+  
   const handleEnter = () => {
     setIsInternalEntered(true);
     if (onExternalEnter) {
@@ -24,42 +26,54 @@ export default function FeaturedMenu({ isExternalEntered, onExternalEnter }: Fea
     }
   };
 
-  // Get selected category
-  const selectedCategory = useMemo(() => {
-    return menuCategories.find((cat) => cat.id === activeCategory);
-  }, [activeCategory]);
+  // Track window width to toggle layout
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  // Filter items in each subcategory based on search query and diet
-  const filteredSubcategories = useMemo(() => {
-    if (!selectedCategory) return [];
+  // Map page back to category to highlight active tab
+  const getCategoryForPage = (page: number): string => {
+    if (page <= 4) return "signatures";
+    if ((page >= 5 && page <= 7) || page === 11 || page === 12) return "starters";
+    if (page === 8 || page === 9 || page === 10 || page === 13) return "mains-global";
+    if (page >= 14 && page <= 17) return "mains-indian";
+    return "drinks-desserts";
+  };
 
-    return selectedCategory.subcategories.map((sub) => {
-      const filteredItems = sub.items.filter((item) => {
-        // 1. Search filter
-        const matchesSearch = 
-          item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-          (item.description && item.description.toLowerCase().includes(searchQuery.toLowerCase()));
+  const handleBookPageChange = (page: number) => {
+    setBookPage(page);
+    const categoryId = getCategoryForPage(page);
+    setActiveCategory(categoryId);
+  };
 
-        // 2. Diet filter
-        const matchesDiet = 
-          dietFilter === "all" ||
-          (dietFilter === "veg" && item.isVeg) ||
-          (dietFilter === "nonveg" && !item.isVeg);
-
-        return matchesSearch && matchesDiet;
-      });
-
-      return {
-        ...sub,
-        items: filteredItems
-      };
-    }).filter(sub => sub.items.length > 0); // Only return subcategories that have items matching filters
-  }, [selectedCategory, searchQuery, dietFilter]);
-
-  // Total count of matching items in the active category
-  const totalItemsCount = useMemo(() => {
-    return filteredSubcategories.reduce((acc, sub) => acc + sub.items.length, 0);
-  }, [filteredSubcategories]);
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    
+    let targetPage = 1;
+    if (isMobile) {
+      switch (categoryId) {
+        case "signatures": targetPage = 4; break;
+        case "starters": targetPage = 5; break;
+        case "mains-global": targetPage = 8; break;
+        case "mains-indian": targetPage = 14; break;
+        case "drinks-desserts": targetPage = 18; break;
+      }
+    } else {
+      switch (categoryId) {
+        case "signatures": targetPage = 4; break; // Shows 4 & 5
+        case "starters": targetPage = 6; break; // Shows 6 & 7
+        case "mains-global": targetPage = 8; break; // Shows 8 & 9
+        case "mains-indian": targetPage = 14; break; // Shows 14 & 15
+        case "drinks-desserts": targetPage = 18; break; // Shows 18 & 19
+      }
+    }
+    setBookPage(targetPage);
+  };
 
   return (
     <section id="menu" className="py-24 bg-brown-900 relative overflow-hidden min-h-[80vh] flex flex-col justify-center">
@@ -119,10 +133,7 @@ export default function FeaturedMenu({ isExternalEntered, onExternalEnter }: Fea
           {menuCategories.map((category) => (
             <button
               key={category.id}
-              onClick={() => {
-                setActiveCategory(category.id);
-                setSearchQuery(""); // Clear search when switching tabs
-              }}
+              onClick={() => handleCategoryChange(category.id)}
               className={`px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 border ${
                 activeCategory === category.id
                   ? "bg-gradient-to-r from-gold-600 to-gold-500 text-background border-gold-500 font-semibold shadow-[0_4px_15px_rgba(212,175,55,0.25)]"
@@ -146,7 +157,6 @@ export default function FeaturedMenu({ isExternalEntered, onExternalEnter }: Fea
               transition={{ duration: 0.4 }}
               className="flex flex-col items-center justify-center py-12 max-w-lg mx-auto text-center"
             >
-
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -165,145 +175,10 @@ export default function FeaturedMenu({ isExternalEntered, onExternalEnter }: Fea
               transition={{ duration: 0.5 }}
               className="space-y-12"
             >
-              {/* Interactive Controls (Search & Diet Filters) */}
-              <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-4 justify-between items-center bg-background/50 border border-white/5 backdrop-blur-md p-4 rounded-2xl">
-                {/* Search bar */}
-                <div className="relative w-full md:max-w-md">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-cream/40" size={18} />
-                  <input 
-                    type="text" 
-                    placeholder={`Search in ${selectedCategory?.name}...`}
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-brown-900/50 border border-white/10 rounded-xl py-3 pl-12 pr-4 text-cream placeholder-cream/40 focus:outline-none focus:border-gold-500/40 text-sm transition-colors"
-                  />
-                </div>
+              {/* Menu Book Component */}
+              <MenuBook currentPage={bookPage} onPageChange={handleBookPageChange} />
 
-                {/* Diet filters (All / Veg / Non-Veg) */}
-                <div className="flex gap-2 p-1 bg-brown-900/50 border border-white/10 rounded-xl w-full md:w-auto">
-                  <button
-                    onClick={() => setDietFilter("all")}
-                    className={`flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
-                      dietFilter === "all" 
-                        ? "bg-gold-600 text-background shadow-lg shadow-gold-600/10" 
-                        : "text-cream/70 hover:text-cream"
-                    }`}
-                  >
-                    All
-                  </button>
-                  <button
-                    onClick={() => setDietFilter("veg")}
-                    className={`flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 ${
-                      dietFilter === "veg" 
-                        ? "bg-green-600/90 text-white shadow-lg shadow-green-600/10" 
-                        : "text-cream/70 hover:text-cream"
-                    }`}
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500 border border-white/20 inline-block"></span>
-                    Veg Only
-                  </button>
-                  <button
-                    onClick={() => setDietFilter("nonveg")}
-                    className={`flex-1 md:flex-none px-5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 ${
-                      dietFilter === "nonveg" 
-                        ? "bg-red-600/90 text-white shadow-lg shadow-red-600/10" 
-                        : "text-cream/70 hover:text-cream"
-                    }`}
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 border border-white/20 inline-block"></span>
-                    Non-Veg
-                  </button>
-                </div>
-              </div>
-
-              {/* Menu Items Container */}
-              <div className="max-w-5xl mx-auto min-h-[300px] space-y-16">
-                {filteredSubcategories.map((sub, sIdx) => (
-                  <div key={sub.name} className="space-y-6">
-                    {/* Subcategory title */}
-                    <div className="flex items-center gap-4">
-                      <h3 className="text-xl md:text-2xl font-serif font-semibold text-gold-400 flex items-center gap-2">
-                        <ChevronRight className="text-gold-500/60" size={20} />
-                        {sub.name}
-                      </h3>
-                      <div className="flex-1 h-[1px] bg-gradient-to-r from-gold-500/20 to-transparent"></div>
-                    </div>
-
-                    {/* Items Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {sub.items.map((item, idx) => (
-                        <div
-                          key={`${sub.name}-${item.name}-${idx}`}
-                          className="bg-background/40 border border-white/5 hover:border-gold-500/20 p-6 md:p-8 rounded-2xl transition-all duration-300 flex flex-col justify-between group hover:bg-background/60 shadow-xl"
-                        >
-                          <div>
-                            {/* Item Title & Icons */}
-                            <div className="flex justify-between items-start gap-4 mb-3">
-                              <h4 className="text-lg md:text-xl font-serif font-bold text-cream group-hover:text-gold-400 transition-colors">
-                                {item.name}
-                              </h4>
-                              <div className="flex items-center gap-2 shrink-0">
-                                {/* Diet Dot */}
-                                <span 
-                                  className={`w-3.5 h-3.5 rounded-sm flex items-center justify-center border ${
-                                    item.isVeg ? "border-green-500" : "border-red-500"
-                                  }`}
-                                  title={item.isVeg ? "Vegetarian" : "Non-Vegetarian"}
-                                >
-                                  <span className={`w-1.5 h-1.5 rounded-full ${item.isVeg ? "bg-green-500" : "bg-red-500"}`}></span>
-                                </span>
-
-                                {/* Spicy Badge */}
-                                {item.isSpicy && (
-                                  <span className="text-red-400" title="Spicy">
-                                    <Flame size={16} className="fill-red-400/25" />
-                                  </span>
-                                )}
-
-                                {/* Signature Gold Star */}
-                                {item.isSignature && (
-                                  <span className="text-gold-500" title="Bae's Signature">
-                                    <Award size={16} className="fill-gold-500/25" />
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-
-                            {/* Description */}
-                            {item.description && (
-                              <p className="text-cream/60 leading-relaxed text-sm font-light mb-6">
-                                {item.description}
-                              </p>
-                            )}
-                          </div>
-
-                          {/* Price & Badges */}
-                          <div className="flex justify-between items-center mt-auto pt-4 border-t border-white/5">
-                            <span className="text-xl font-serif font-bold bg-gradient-to-r from-gold-400 to-gold-500 bg-clip-text text-transparent">
-                              ₹{item.price}
-                            </span>
-
-                            {item.isSignature && (
-                              <span className="text-[10px] uppercase font-semibold tracking-wider text-gold-400 bg-gold-500/10 border border-gold-500/20 px-2.5 py-0.5 rounded-md">
-                                Signature
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-
-                {/* Empty State */}
-                {totalItemsCount === 0 && (
-                  <div className="py-16 text-center text-cream/50 font-light">
-                    No dishes found matching your criteria in this category. Try searching for something else!
-                  </div>
-                )}
-              </div>
-
-              {/* View Full Menu PDF */}
+              {/* View Full Menu PDF Fallback */}
               <div className="mt-16 text-center">
                 <a 
                   href="/BaesFoodCentral_Menu_2026.pdf"
